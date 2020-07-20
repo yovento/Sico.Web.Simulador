@@ -1,0 +1,30 @@
+<div class="collapse-block">
+  <table class="info-proyecto-table">
+    <tbody>
+      <tr *ngIf="selectedBuilding.buildingValue > 0">
+        <td><b>Precio inmueble:</b></td>
+        <td>$ {{ selectedBuilding.buildingValue.toLocaleString('es-CO') }}</td>
+      </tr>
+      <!-- <tr>
+        <td><b>Acabados:</b></td>
+        <td>+ $15'000.000</td>
+      </tr> -->
+      <tr *ngIf="selectedBuilding.parkingValue > 0">
+        <td><b>Parqueadero:</b></td>
+        <td>+ $ {{ selectedBuilding.parkingValue.toLocaleString('es-CO') }}</td>
+      </tr>
+      <tr *ngIf="selectedBuilding.storageValue > 0">
+        <td><b>Cuarto útil:</b></td>
+        <td>+ $ {{ selectedBuilding.storageValue.toLocaleString('es-CO') }}</td>
+      </tr>
+      <tr *ngIf="selectedBuilding.otherValue > 0">
+        <td><b>Otros:</b></td>
+        <td>+ $ {{ selectedBuilding.otherValue.toLocaleString('es-CO') }}</td>
+      </tr>
+      <tr *ngIf="selectedBuilding.totalValue > 0">
+        <td><b>VALOR TOTAL:</b></td>
+        <td>$ {{ selectedBuilding.totalValue.toLocaleString('es-CO') }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

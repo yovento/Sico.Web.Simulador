@@ -1,0 +1,158 @@
+.plazo_slider {
+  margin: 20px 0;
+}
+.cuota_slider {
+  margin: 60px 0;
+}
+
+#slider-margin {
+  height: 5px;
+  border: none;
+  @include box-shadow(none);
+  background: $very-light-grey;
+  @include border-radius(2.5px);
+  .noUi-connect {
+    background: $blue-dark;
+  }
+  .noUi-handle {
+    width: 60px;
+    height: 30px;
+    top: -12px;
+    background: $blue;
+    @include box-shadow(0px 3px 2.85px 0.15px rgba(0, 0, 0, 0.1));
+    @include border-radius(5px);
+    outline: none;
+    border: none;
+    // left: 50%;
+    // @include transform(translateX(-50%));
+    // right: auto;
+    right: -25px;
+    cursor: pointer;
+    &:after, &:before {
+      background: transparent;
+      height: 0px;
+      width: 20px;
+      top: -2px;
+      font-size: 18px;
+      outline: none;
+    }
+    &:before {
+      color: #fff;
+      content: "\003c";
+      left: 8px;
+      top: 0px;
+    }
+    &:after {
+      color: #fff;
+      left: auto;
+      right: -2px;
+      content: "\003e";
+      top: 0;
+    }
+    .noUi-tooltip {
+      bottom: 3px;
+      border: none;
+      background: transparent;
+      font-weight: 500;
+      color: #fff;
+      padding: 0px;
+      font-size: 16px;
+    }
+  }
+}
+
+
+
+#slider-separacion {
+  height: 5px;
+  border: none;
+  @include box-shadow(none);
+  background: $very-light-grey;
+  @include border-radius(2.5px);
+
+  .noUi-base:before {
+    width: 5px;
+    height: 40px;
+    content: "";
+    display: block;
+    background: $very-light-grey;
+    left: 30%;
+    position: absolute;
+    margin-top: -18px;
+    border-radius: 2px;
+
+
+  }
+  .noUi-base.range30:before {
+    background: $blue-dark;
+  }
+  .noUi-base:after {
+    content: "30%";
+    display: block;
+    position: absolute;
+    left: 29%;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: $bold;
+    color: $blue-dark;
+  }
+
+
+
+  .noUi-connect {
+    background: $blue-dark;
+  }
+  .noUi-handle {
+    width: 30px;
+    border-radius: 15px !important;
+    height: 30px;
+    top: -12px;
+    background: $blue;
+    @include box-shadow(0px 3px 2.85px 0.15px rgba(0, 0, 0, 0.1));
+    @include border-radius(5px);
+    outline: none;
+    border: none;
+    // left: 50%;
+    // @include transform(translateX(-50%));
+    // right: auto;
+    right: -25px;
+    cursor: pointer;
+    &:after, &:before {
+      display: none;
+    }
+    &.noUi-active {
+      background: $blue-dark;
+    }
+    .noUi-tooltip {
+      bottom: 40px;
+      border: none;
+      font-weight: 500;
+      color: $white;
+      font-size: 16px;
+      background: $grey-blue;
+      padding: 3px 10px;
+
+      &:after {
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid $grey-blue;
+        content: "";
+        position: absolute;
+        left: 50%;
+        margin-left: -10px;
+        margin-top: 25px;
+      }
+    }
+  }
+}
+
+
+#slider-separacion .noUi-handle .noUi-tooltip {
+  display: none;
+}
+#slider-separacion .noUi-handle.noUi-active .noUi-tooltip {
+  display: block;
+}

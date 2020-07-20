@@ -1,0 +1,35 @@
+<div class="collapse-block">
+  <table class="info-proyecto-table">
+    <tbody>
+      <tr *ngIf="selectedBuilding.projectLogo != undefined">
+        <td class="table-img" colspan="2">
+          <img src="{{selectedBuilding.projectLogo}}" alt="" />
+        </td>
+      </tr>
+      <tr *ngIf="selectedBuilding.projectName != undefined">
+        <td><b>Proyecto:</b></td>
+        <td>{{selectedBuilding.projectName | titlecase}}</td>
+      </tr>
+      <tr *ngIf="selectedBuilding.segmentName != undefined">
+        <td><b>Etapa:</b></td>
+        <td>{{selectedBuilding.segmentName | titlecase}}</td>
+      </tr>
+      <tr *ngIf="selectedBuilding.buildingName != undefined">
+        <td><b>Inmueble:</b></td>
+        <td>{{selectedBuilding.buildingName | titlecase}}</td>
+      </tr>
+      <tr *ngIf="selectedBuilding.buildingArea != undefined">
+        <td><b>Área:</b></td>
+        <td>{{selectedBuilding.buildingArea}} m<sup>2</sup></td>
+      </tr>
+      <tr *ngIf="selectedBuilding.parkingName != undefined">
+        <td><b>Parqueadero:</b></td>
+        <td>{{selectedBuilding.parkingName | titlecase}}</td>
+      </tr>
+      <tr *ngIf="selectedBuilding.totalValue > 0">
+        <td><b>Valor total:</b></td>
+        <td>$ {{selectedBuilding.totalValue.toLocaleString('es-CO')}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,10 @@
+<div class="inmueble-block" (click)="buildingSelected(building.intIdInmueble)"
+  [ngClass]="building.selected ? 'selected' : ''">
+  <p class="inmueble-numero">{{ building.strDescripcionInmueble | titlecase }}</p>
+  <div class="inmueble-icon verde">
+    <i class="fa fa-home"></i>
+  </div>
+  <div class="inmueble-block-divisor"></div>
+  <p class="inmueble-block-valor">$ {{ building.numValorInmueble.toLocaleString('es-CO') }}</p>
+  <p class="inmueble-block-size">{{ building.numAreaConstruida.toLocaleString('es-CO') }}m<sup>2</sup></p>
+</div>

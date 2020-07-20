@@ -1,0 +1,180 @@
+#form_proyecto {
+  display: none;
+}
+#listado_inmuebles {
+  display: none;
+}
+#listado_inmuebles_A {
+  display: none;
+}
+#listado_inmuebles_B {
+  display: none;
+}
+#listado_inmuebles_C {
+  display: none;
+}
+
+#listado_inmuebles {
+  margin: 0 5px;
+  .col-4 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.inmueble-block {
+  background: $near-white;
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  font-family: $oswald;
+  display: block;
+  height: 76px;
+  p.inmueble-numero {
+    color: $medium-grey;
+    float: left;
+    margin: 0;
+    display: inline-block;
+  }
+  .inmueble-icon {
+    display: inline-block;
+    float: right;
+
+    &.verde {
+      color: $green;
+    }
+    &.amarillo {
+      color: $yellow;
+    }
+    &.rojo {
+      color: $red;
+    }
+  }
+  .inmueble-block-divisor {
+    height: 1px;
+    background: #d4d4d4;
+    float: left;
+    width: 100%;
+    display: inline-block;
+    margin: 6px 0;
+  }
+  p.inmueble-block-valor {
+    margin: 0;
+    color: $medium-grey;
+    font-weight: bold;
+    display: inline-block;
+    width: 70%;
+    float: left;
+  }
+  p.inmueble-block-size {
+    margin: 0;
+    color: $grey;
+    float: right;
+    display: inline-block;
+    text-align: right;
+    width: 30%;
+  }
+
+
+  &.selected {
+    background: $green;
+    p.inmueble-numero {
+      color: $white;
+    }
+    .inmueble-icon {
+      &.verde {
+        color: $white;
+      }
+      &.amarillo {
+        color: $white;
+      }
+      &.rojo {
+        color: $white;
+      }
+    }
+    .inmueble-block-divisor {
+      background: $white;
+    }
+    p.inmueble-block-valor {
+      color: $white;
+    }
+    p.inmueble-block-size {
+      color: $white;
+    }
+  }
+  &:hover {
+    background: $green;
+    p.inmueble-numero {
+      color: $white;
+    }
+    .inmueble-icon {
+      &.verde {
+        color: $white;
+      }
+      &.amarillo {
+        color: $white;
+      }
+      &.rojo {
+        color: $white;
+      }
+    }
+    .inmueble-block-divisor {
+      background: $white;
+    }
+    p.inmueble-block-valor {
+      color: $white;
+    }
+    p.inmueble-block-size {
+      color: $white;
+    }
+  }
+}
+
+.inmueble-icons {
+  width: 100%;
+  display: block;
+  position: relative;
+  height: 26px;
+
+  .inmueble-icons-wrapper {
+    width: auto;
+    display: block;
+    float: left;
+    height: 26px;
+  }
+  p.inmueble-identificador {
+    float: left;
+    font-size: 12px;
+    margin-bottom: 0;
+    height: 26px;
+    line-height: 26px;
+    margin-right: 10px;
+  }
+  .inmueble-icon {
+    display: inline-block;
+    float: left;
+    margin-right: 6px;
+
+    &.verde {
+      color: $green;
+    }
+    &.amarillo {
+      color: $yellow;
+    }
+    &.rojo {
+      color: $red;
+    }
+  }
+}
+
+img.plano-img {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  display: block;
+
+  @include mobile {
+    width: 400px;
+  }
+}

@@ -1,0 +1,1391 @@
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+// AJUSTAR FORMAS DE PAGO - CAMPOS ESCONDIDOS POR DEFECTO
+#cuotas-container {
+  display: none;
+}
+#financiacion-container {
+  display: none;
+}
+
+// AJUSTAR FORMAS DE PAGO - BLOQUES CUOTA Y FINANCIACIÓN
+#row-ajuste-cuotainicial {
+  display: none;
+
+  &.visible {
+    display: flex;
+  }  
+}
+#row-ajuste-financiacion {
+  display: none;
+
+  &.visible {
+    display: flex;
+  }
+}
+
+
+
+// HIDE FIELDS
+// #separacion-container {
+//   display: none;
+// }
+// #totalidad-container {
+//   display: none;
+// }
+// #plan-pagos {
+//   display: none;
+// }
+
+
+
+.signup-form {
+    padding: 32px 40px 40px 40px;
+}
+input, select {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border: 1px solid $border-color;
+  border-radius: 5px;
+  font-family: $roboto;
+  font-size: 13px;
+  padding: 15px 20px;
+}
+input {
+  &:focus {
+    border: 1px solid #666;
+  }
+}
+input.valid {
+  border: 1px solid $blue;
+}
+.form-control.valid {
+  border: 1px solid $blue;
+}
+
+[type="date"] {
+  //background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+  padding: 15px 8px 15px 20px;
+  height: 50px;
+}
+[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+
+.form-group, .form-select, .form-date  {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.form-row {
+    @extend display-flex;
+    @include justify-content(space-between);
+    .form-select {
+        width: 160px;
+    }
+    .form-date {
+        width: 266px;
+    }
+}
+label {
+  display: block;
+  width: 100%;
+  font-size: 20px;
+  margin-bottom: 5px;
+  font-weight: 500;
+  font-family: $oswald;
+  color: $grey-blue;
+
+  &.right {
+    display: inline-block;
+    float: right;
+    width: auto;
+  }
+  &.separacion_label {
+    float: left;
+    width: auto;
+  }
+}
+label.required {
+    position: relative;
+    &:after {
+        content: '*';
+        margin-left: 2px;
+        color: #b90000;
+    }
+}
+span.span-value {
+  display: block;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 30px;
+  padding: 0 12px;
+}
+span#separacion_valor {
+  color: $grey;
+  float: left;
+  font-size: 18px;
+  font-family: $oswald;
+  line-height: 32px;
+
+  &:before {
+    content: "$";
+  }
+}
+span#valor_cuotamensual {
+  color: $grey;
+  float: left;
+  font-size: 18px;
+  font-family: $oswald;
+  line-height: 32px;
+
+  &:before {
+    content: "$";
+  }
+}
+.valor-wrapper {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;  
+}
+#valor_financiar {
+  display: none;
+  color: $blue;
+  margin: 0 0 30px;
+  font-size: 28px;
+  font-family: $oswald;
+  line-height: 28px;
+
+  // &:before {
+  //   content: "$";
+  // }
+}
+#valor_financiar.show {
+  display: block;
+}
+.btn-calcular {
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  // margin-bottom: 30px;
+}
+
+
+#ajuste-valor {
+  margin-bottom: 20px;
+}
+
+
+i#separacion_icon {
+  margin: 5px 0;
+  font-size: 25px;
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+i#separacion_icon.fa-check-circle {
+  color: $green;
+}
+i#separacion_icon.fa-times-circle {
+  color: $red;
+}
+
+i#cuotainicial_icon {
+  margin: 5px 0;
+  font-size: 25px;
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+i#cuotainicial_icon.fa-check-circle {
+  color: $green;
+}
+i#cuotainicial_icon.fa-times-circle {
+  color: $red;
+}
+
+ul {
+    @extend display-flex;
+    @extend list-type-ulli;
+}
+.steps {
+    margin-bottom: 23px;
+    ul {
+        @include justify-content(space-between);
+    }
+}
+ul.tablist a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+.icon {
+    font-size: 29px;
+}
+.title {
+  background: $grey-blue-light;
+  @include border-radius(45px);
+  @extend display-flex;
+  @include justify-content(center);
+  @include align-items(center);
+  @include flex-direction(column);
+  width: 90px;
+  height: 90px;
+  color: #fff;
+  transition: 400ms;
+  &:hover {
+    background: $blue-dark;
+  }
+}
+span.title span {
+  font-size: 40px;
+}
+img.svg-icon {
+  width: 50px;
+}
+.title_text {
+    margin-top: -5px;
+}
+.current {
+  .title {
+      background: $blue;
+  }
+}
+li.done .title {
+  background: $blue-dark;
+}
+
+.content {
+  h3 {
+    display: none;
+  }
+}
+fieldset  {
+  border: none;
+  margin: 0px;
+  padding: 0px;
+  margin-top: 40px;
+}
+
+
+.actions {
+  margin-top: 25px;
+  .disabled {
+      display: none;
+  }
+  ul {
+    @include justify-content(flex-end);
+    li {
+      margin-left: 10px;
+      // &:first-child {
+      //   a {
+      //     background: $grey;
+      //   }
+      // }
+      a {
+        background: $blue;
+        width: auto;
+        padding: 10px 20px;
+        height: 50px;
+        color: #fff;
+        font-family: $oswald;
+        letter-spacing: $spacing;
+        font-weight: 300;
+        @include border-radius(5px);
+        @extend display-flex;
+        @include justify-content(center);
+        @include align-items(center);
+        font-size: 16px;
+        text-transform: uppercase;
+        transition: 600ms;
+
+        &:hover {
+          //background-color: darken($pink-color, 10%)
+          background-color: $blue-dark;
+        }
+
+        i.fa-chevron-left {
+          margin-right: 10px;
+        }
+        i.fa-chevron-right {
+          margin-left: 10px;
+        }
+        i.fa-paper-plane {
+          margin-left: 10px;
+        }
+      }
+      &.btn-grey a {
+        background: $grey-blue-light;
+        &:hover {
+          background: $light-grey;
+        }
+      }
+      &.btn-green a {
+        background: $green;
+        &:hover {
+          background: $green-dark;
+        }
+      }
+    }
+  }
+}
+label.error {
+  display: block;
+  position: absolute;
+  top: 0px;
+  right: 0;
+  &:after {
+    // font-family: 'themify';
+    font-family: 'sico-cotizador' !important;
+    position: absolute;
+    // content: '\e717';
+    content: "\e907";
+    right: 14px;
+    top: 40px;
+    font-size: 20px;
+    color: #ff1212;
+  }
+}
+.select-list label.error {
+  margin-top: -30px;
+}
+select.error {
+  border: 1px solid #ff1212;
+}
+input.error {
+  border: 1px solid #ff1212;
+}
+
+
+// MENU LATERAL
+.actions ul#menu-lateral li {
+  width: 50%;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &.menu-lateral-step1 {
+    display: block;
+  }
+  &.menu-lateral-step2 {
+    display: none;
+  }
+  &.menu-lateral-step3 {
+    display: none;
+  }
+}
+
+
+// ul.list-item {
+//     z-index: 9;
+//     border: 1px solid $border-color;
+//     @include border-radius(5px);
+//     display: block;
+// }
+// ul.list-item li {
+//     padding: 13px 20px;
+//     z-index: 2;
+//     color: $black;
+//     font-size: 13px;
+// }
+// ul.list-item li:not(.init) {
+//     display: none;
+//     background: #fff;
+//     color: $black;
+//     padding: 5px 20px;
+// }
+// ul.list-item li:not(.init):hover, ul.list-item li.selected:not(.init) {
+//     background: $red;
+//     color: #fff;
+// }
+// li.init {
+//     cursor: pointer;
+//     position: relative;
+//     &:after {
+//         position: absolute;
+//         right: 20px;
+//         top: 50%;
+//         @include transform(translateY(-50%));
+//         font-size: 10px;
+//         color: $black-color;
+//         font-family: 'themify';
+//         content: '\e64b';
+//     }
+// }
+// legend {
+//     width: 100%;
+//     margin: 0px;
+//     padding: 0px;
+//     font-size: 17px;
+//     margin-bottom: 20px;
+//     span {
+//         display: inline-block;
+//     }
+// }
+// .step-heading {
+//   color: $blue-dark;
+//   float: left;
+//   font-family: $oswald;
+//   font-size: 28px;
+//   text-transform: uppercase;
+// }
+// .step-number {
+//   color: $grey-blue-light;
+//   float: right;
+//   font-size: 18px;
+//   font-family: $oswald;
+// }
+// .form-date-item {
+//   position: relative;
+//   overflow: hidden;
+//   &:after {
+//     position: absolute;
+//     content: '';
+//     width: 1px;
+//     height: 30px;
+//     background: $border-color;
+//     right: 0;
+//     top: 50%;
+//     @include transform(translateY(-50%));
+//   }
+//   &:last-child {
+//     &:after {
+//       width: 0px;
+//     }
+//   }
+//   .select-icon {
+//     z-index: 0;
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     bottom: 0;
+//     @extend display-flex;
+//     @include justify-content(center);
+//     @include align-items(center);
+//     i {
+//       @extend display-flex;
+//       @include justify-content(center);
+//       @include align-items(center);
+//       width: 30px;
+//       height: 20px;
+//       font-size: 10px;
+//       color: $black-color;
+//     }
+//   }
+// }
+// .ui-datepicker-trigger {
+//     position: absolute;
+//     right: 10px;
+//     top: 20px;
+//     color: $black-color;
+//     font-size: 10px;
+//     background: transparent;
+//     border: none;
+//     outline: none;
+//     cursor: pointer;
+// }
+// .form-date-group {
+//
+//     @extend display-flex;
+//     @include justify-content(space-between);
+//     border: 1px solid $border-color;
+//     @include border-radius(5px);
+//     select {
+//         border: none;
+//         width: 90px;
+//         box-sizing: border-box;
+//         @include appearance(none);
+//         position: relative;
+//         background: 0 0;
+//         z-index: 10;
+//         cursor: pointer;
+//     }
+// }
+.select-list {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    //margin-bottom: 47px;
+}
+.list-item {
+    position: absolute;
+    width: 100%;
+    z-index: 99;
+}
+
+
+.form-control {
+  height: 50px;
+  border: 1px solid $border-color;
+  font-size: 16px;
+}
+label.label-h {
+  height: 50px;
+  line-height: 50px;
+  margin-bottom: 0;
+}
+.input-group-text {
+  background-color: $blue;
+  border: 1px solid $blue;
+  color: $white;
+  font-size: 16px;
+  padding: 10px 20px;
+}
+.custom-control-input:checked~.custom-control-label::before {
+  color: #fff;
+  border-color: $blue;
+  background-color: $blue;
+}
+.row.row-w {
+  margin-bottom: 20px;
+}
+.form-control {
+  margin-bottom: 0;
+}
+.form-text {
+  font-size: 12px;
+  line-height: 14px;
+  margin-bottom: 0;
+}
+.switch-wrapper {
+  margin-bottom: 0;
+}
+.form-control:focus {
+  box-shadow: none !important;
+}
+
+
+
+
+
+
+.cuotas-wrapper {
+  width: 100%;
+
+  .cuotas-group {
+    display: inline-block;
+    margin-top: 20px;
+    width: 100%;
+    @include mobile {
+      margin-top: 0;
+    }
+  }
+
+  .cuotas-third {
+    float: left;
+    width: 100%;
+    @include mobile {
+      width: 33%;
+    }
+  }
+  .cuotas-half {
+    float: left;
+    width: 100%;
+    @include mobile {
+      width: 50%;
+    }
+  }
+  .cuotas-btn {
+    float: left;
+    width: 0;
+  }
+}
+
+.cuotas-group .cuotas-half .input-group {
+  margin-bottom: 10px;
+}
+.cuotas-group .cuotas-half .input-group input {
+  margin-right: 0;
+  @include mobile {
+    margin-right: 10px;
+  }
+}
+.cuotas-group .cuotas-half.cuotas-half_second .input-group {
+  margin-bottom: 0;
+}
+.cuotas-group .cuotas-half.cuotas-half_second .input-group input {
+  margin-right: 0;
+}
+
+.cuotas-group .cuotas-third .input-group {
+  margin-bottom: 10px;
+}
+.cuotas-group .cuotas-third .input-group input {
+  margin-right: 0;
+  @include mobile {
+    margin-right: 10px;
+  }
+}
+.cuotas-group .cuotas-third .select-list select {
+  margin-bottom: 10px;
+  width: 100%;
+  @include mobile {
+    margin-bottom: 0;
+    width: 95%;
+  }
+}
+.cuotas-group .cuotas-third.cuotas-third_last .input-group {
+  margin-bottom: 0;
+}
+.cuotas-group .cuotas-third.cuotas-third_last .input-group input {
+  margin-right: 0;
+}
+
+.input-group.input-date i {
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
+  margin-top: 16px;
+  pointer-events: none;
+}
+
+button.add_planpagos {
+  border: none;
+  background: $green;
+  border-radius: 5px;
+  color: $white;
+  display: block;
+  font-size: 14px;
+  float: none;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  height: 40px;
+  line-height: 24px;
+  padding: 0 14px;
+  text-transform: uppercase;
+  width: auto;
+
+  @include mobile {
+    // margin-top: 0;
+    // float: right;
+  }
+  i {
+    margin-left: 10px;
+  }
+
+  &:hover {
+    background: $green-dark;
+  }
+}
+
+button.add_button {
+  border: none;
+  background: $green;
+  border-radius: 5px;
+  color: $white;
+  display: block;
+  font-size: 14px;
+  float: none;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  height: 40px;
+  line-height: 24px;
+  padding: 0 14px;
+  text-transform: uppercase;
+  transition: 600ms;
+  width: auto;
+
+  @include mobile {
+    margin-top: 0;
+    float: right;
+  }
+  i {
+    margin-left: 10px;
+  }
+
+  &:hover {
+    background: $green-dark;
+  }
+}
+button.remove_button {
+  background: $red;
+  border: none;
+  border-radius: 10px;
+  color: $white;
+  font-size: 10px;
+  height: 20px;
+  line-height: 18px;
+  margin-top: -15px;
+  margin-left: 8px;
+  position: absolute;
+  transition: 600ms;
+  width: 20px;
+
+  @include mobile {
+    margin-top: 15px;
+    position: relative;
+  }
+
+  &:hover {
+    background: $red-dark;
+  }
+}
+
+button.remove_button:focus, button.add_button:focus {
+  outline: none;
+}
+
+.block-resumen {
+  border: 2px solid $blue-light;
+  border-radius: 15px;
+  height: auto;
+  margin-top: 30px;
+  padding: 15px 0;
+
+  @include mobile {
+    height: 100px;
+  }
+
+  span#resumen-meses:after {
+    content: " Meses";
+  }
+
+  span.block-resumen-value {
+    color: $grey-blue;
+    display: block;
+    font-family: $oswald;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 22px;
+    text-align: center;
+    @include mobile {
+      font-size: 22px;
+    }
+  }
+  span.block-resumen-text {
+    color: $grey-blue-light;
+    display: block;
+    text-align: center;
+    font-family: $roboto;
+    font-size: 14px;
+    line-height: 16px;
+    margin-top: 4px;
+    padding: 0 8px;
+    @include mobile {
+      font-size: 14px;
+      line-height: 14px;
+      margin-top: 6px;
+      padding: 0 10px;
+    }
+    @include tablet {
+      font-size: 16px;
+      line-height: 16px;
+      margin-top: 10px;
+      padding: 0 20px;
+    }
+  }
+}
+
+
+
+//  PROPUESTA CUOTA INICIAL
+.block-cuota.block-cuota_saldocuotainicial, .block-cuota.block-cuota_valorcuotamensual {
+  height: 60px;
+  margin-top: 10px;
+  padding: 5px 0;
+}
+.block-cuota.block-cuota_separacion, .block-cuota.block-cuota_cuotainicial {
+  height: 128px;
+  margin-top: 10px;
+  padding: 20px 0 20px 0;
+}
+.block-cuota.block-cuota_propuesta {
+  height: 110px;
+  margin-top: 10px;
+  padding: 20px 0 20px 0;
+}
+.block-cuota.block-cuota_propuestacuotas {
+  height: 110px;
+  margin-top: 10px;
+  padding: 10px 0 10px 0;
+}
+
+
+.block-cuota-wrapper.full {
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+.block-cuota-wrapper {
+  padding: 0 15px;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+  //transition: 600ms;
+  @include tablet {
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+}
+.block-cuota-wrapper.block-half {
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+  transition: 600ms;
+  @include mobile {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+.block-cuota-wrapper.block-hide {
+  flex: 0%;
+  max-width: 0%;
+  display: none;
+  transition: 600ms;
+}
+
+.block-cuota_propuesta.validate {
+  border: 2px solid $green;
+}
+.block-cuota_separacion.validate {
+  border: 2px solid $green;
+}
+.block-cuota_cuotainicial.validate {
+  border: 2px solid $green;
+}
+.block-cuota.block-cuota_propuestacuotas.validate {
+  border: 2px solid $green;  
+}
+
+.block-cuota {
+  border: 2px solid $blue-light;
+  border-radius: 15px;
+  height: auto;
+  margin-top: 30px;
+  padding: 15px 0;
+
+  @include mobile {
+    height: 100px;
+  }
+
+  span#resumen-meses:after {
+    content: " Meses";
+  }
+
+  span#propuesta_cuotainicial {
+    font-size: 34px;
+    line-height: 36px;    
+  }
+  span#ajuste-propuesta_cuotainicial {
+    font-size: 34px;
+    line-height: 36px;    
+  }  
+  span#propuesta_meses:after {
+    content: "cuotas";
+    padding-left: 8px;
+    font-size: 16px;
+  }
+  span#propuesta_valorcuota:after {
+    content: "mensual";
+    padding-left: 8px;
+    font-size: 16px;
+  }  
+
+
+  span.block-cuota-value {
+    color: $grey-blue;
+    display: block;
+    font-family: $oswald;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 22px;
+    text-align: center;
+    @include mobile {
+      font-size: 22px;
+    }
+  }
+  span.block-cuota-text {
+    color: $grey-blue-light;
+    display: block;
+    text-align: center;
+    font-family: $roboto;
+    font-size: 14px;
+    line-height: 16px;
+    margin-top: 4px;
+    padding: 0 8px;
+    @include mobile {
+      font-size: 14px;
+      line-height: 14px;
+      margin-top: 6px;
+      padding: 0 10px;
+    }
+    @include tablet {
+      font-size: 16px;
+      line-height: 16px;
+      margin-top: 10px;
+      padding: 0 20px;
+    }
+  }
+  span.block-cuota-small {
+    color: $grey-blue-light;
+    display: block;
+    text-align: center;
+    font-family: $roboto;
+    font-size: 12px;
+    line-height: 14px;
+    margin-top: 0;
+    padding: 0 8px;
+    @include mobile {
+      font-size: 12px;
+      line-height: 14px;
+      padding: 0 10px;
+    }
+    @include tablet {
+      font-size: 12px;
+      line-height: 14px;
+      padding: 0 20px;
+    }
+  }  
+  
+}
+
+
+
+//  PROPUESTA FINANCIACIÓN
+.block-propuesta.block-propuesta_ingresosfamiliares, .block-propuesta.block-propuesta_cuotamensual, .block-propuesta.block-propuesta_meses {
+  height: 110px;
+  margin-top: 10px;
+  padding: 20px 0 20px 0;
+}
+// .block-propuesta.block-cuota_separacion, .block-propuesta.block-cuota_cuotainicial {
+//   height: 128px;
+//   margin-top: 10px;
+//   padding: 20px 0 20px 0;
+// }
+.block-propuesta.block-propuesta_valorfinanciar {
+  height: 110px;
+  margin-top: 10px;
+  padding: 20px 0 20px 0;
+}
+
+
+.block-propuesta-wrapper.full {
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+.block-propuesta-wrapper {
+  padding: 0 15px;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+  //transition: 600ms;
+  @include tablet {
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+}
+.block-propuesta-wrapper.block-half {
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+  transition: 600ms;
+  @include mobile {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+.block-propuesta-wrapper.block-hide {
+  flex: 0%;
+  max-width: 0%;
+  display: none;
+  transition: 600ms;
+}
+.block-propuesta {
+  border: 2px solid $green;
+  border-radius: 15px;
+  height: auto;
+  margin-top: 30px;
+  padding: 15px 0;
+
+  @include mobile {
+    height: 100px;
+  }
+
+
+  span#financiacion_valor {
+    font-size: 34px;
+    line-height: 36px;    
+  }
+  span#ajuste-financiacion_valor {
+    font-size: 34px;
+    line-height: 36px;    
+  }  
+
+  span.block-propuesta-value {
+    color: $grey-blue;
+    display: block;
+    font-family: $oswald;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 22px;
+    text-align: center;
+    @include mobile {
+      font-size: 22px;
+    }
+  }
+  span.block-propuesta-text {
+    color: $grey-blue-light;
+    display: block;
+    text-align: center;
+    font-family: $roboto;
+    font-size: 14px;
+    line-height: 16px;
+    margin-top: 4px;
+    padding: 0 8px;
+    @include mobile {
+      font-size: 14px;
+      line-height: 14px;
+      margin-top: 6px;
+      padding: 0 10px;
+    }
+    @include tablet {
+      font-size: 16px;
+      line-height: 16px;
+      margin-top: 10px;
+      padding: 0 20px;
+    }
+  }
+  span.block-propuesta-small {
+    color: $grey-blue-light;
+    display: block;
+    text-align: center;
+    font-family: $roboto;
+    font-size: 12px;
+    line-height: 14px;
+    margin-top: 0;
+    padding: 0 8px;
+    @include mobile {
+      font-size: 12px;
+      line-height: 14px;
+      padding: 0 10px;
+    }
+    @include tablet {
+      font-size: 12px;
+      line-height: 14px;
+      padding: 0 20px;
+    }
+  }  
+}
+
+
+// BTN GROUP
+.btn-group {
+  margin: 0 auto;
+  text-align: center;
+  display: block;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+button.btn-half {
+  background: $blue;
+  width: auto;
+  padding: 10px 20px;
+  height: 50px;
+  color: $white;
+  font-family: $oswald;
+  letter-spacing: 0.05em;
+  font-weight: 300;
+  border-radius: 5px;
+  font-size: 16px;
+  text-transform: uppercase;
+  transition: 600ms;
+  border: none;
+  margin: 0 5px;
+
+  &:hover {
+    background-color: $blue-dark;
+  }
+}
+button.btn-half.green {
+  background: $green;
+  &:hover {
+    background: $green-dark;
+  }
+}
+button.btn-half.grey {
+  background: $grey;
+  &:hover {
+    background: $light-grey;
+  }
+}
+#btn-recalcular {
+  display: none;
+}
+
+
+.subsidio-row {
+  display: none;
+
+  &.show {
+    display: flex;
+  }
+}
+
+#subsidio-block {
+  display: none;
+}
+#subsidio-tipo {
+  display: none;
+}
+#prima-block {
+  display: none;
+}
+#cesantia-block {
+  display: none;
+}
+#adicionales-block {
+  display: none;
+}
+
+
+
+
+
+// HELPERS
+#subsidioHelp {
+  margin-top: 0;
+  margin-bottom: 20px;
+  @include smallmobile {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  @include mobile {
+    margin-top: 0;
+  }
+  @include tablet {
+    margin-top: 10px;
+  }
+  @include desktop {
+    margin-top: 10px;
+  }
+}
+#primaHelp {
+  margin-top: 0;
+  margin-bottom: 20px;
+  @include smallmobile {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  @include mobile {
+    margin-top: 0;
+  }
+  @include tablet {
+    margin-top: 0;
+  }
+  @include desktop {
+    margin-top: 10px;
+  }
+}
+#cesantiaHelp {
+  margin-top: 0px;
+  margin-bottom: 20px;
+  @include smallmobile {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  @include mobile {
+    margin-top: 0;
+  }
+  @include tablet {
+    margin-top: 0;
+  }
+  @include desktop {
+    margin-top: 4px;
+  }
+}
+#adicionalesHelp {
+  margin-top: 0px;
+  margin-bottom: 20px;
+  @include smallmobile {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  @include mobile {
+    margin-top: 0;
+  }
+  @include tablet {
+    margin-top: 0;
+  }
+  @include desktop {
+    margin-top: 4px;
+  }
+}
+
+
+// ERRORS
+input.invalid, textarea.invalid{
+	border: 2px solid red;
+}
+
+input.valid, textarea.valid{
+	border: 2px solid green;
+}
+.error{
+	display: none;
+	margin-left: 10px;
+}
+
+.error_show{
+	color: red;
+	margin-left: 10px;
+}
+
+
+
+
+
+
+/* The switch - the box around the slider */
+label.switch-title {
+  text-align: center;
+}
+span.switch-valor {
+  text-align: center;
+  display: block;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.switch-wrapper {
+  display: block;
+  height: 26px;
+  width: 110px;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+.switch {
+  //display: inline-block;
+  display: block;
+  float: left;
+  height: 26px;
+  position: relative;
+  width: 50px;
+}
+label.switch {
+  margin-bottom: 0;
+}
+p.switch-text {
+  display: block;
+  float: left;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 26px;
+  height: 26px;
+  padding: 0 6px;
+  position: relative;
+  margin-bottom: 0;
+}
+
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: $green;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px $blue;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(22px);
+  -ms-transform: translateX(22px);
+  transform: translateX(22px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 25px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+
+
+
+.politica-check input {
+  float: left;
+  display: block;
+  position: relative;
+  width: auto;
+  margin-left: 0px;
+  margin-right: 10px;
+}
+.politica-check small {
+  float: left;
+  position: relative;
+}
+
+
+
+// FIXES
+button:focus {
+  outline: 0 !important;
+}

@@ -1,0 +1,62 @@
+.wrapper-step {
+  padding: 40px;
+}
+
+legend {
+  background: $blue;
+  padding: 30px;
+
+  span {
+    &.step-heading {
+      color: $white;
+      display: block;
+      letter-spacing: $spacing;
+      font-family: $oswald;
+      font-size: 28px;
+      font-weight: $light;
+      text-align: center;
+    }
+    &.step-number {
+      color: $white;
+      display: block;
+      font-family: $roboto;
+      font-size: 16px;
+      text-align: center;
+      font-weight: 300;
+      &:before {
+        width: 100px;
+        height: 2px;
+        display: block;
+        content: "";
+        background: $blue-dark;
+        margin: 0 auto;
+        margin-top: 8px;
+        margin-bottom: 8px;
+      }
+    }
+  }
+}
+
+span.step-description {
+  color: $grey-blue-light;
+  display: block;
+  font-size: 20px;
+  font-style: italic;
+  margin-bottom: 30px;
+  padding: 0;
+  text-align: center;
+  @include mobile {
+    padding: 0 60px;    
+  }
+}
+span.step-description-inner {
+  color: $blue-dark;
+  display: block;
+  font-family: $oswald;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  margin-top: 20px;
+  text-align: center;
+  text-transform: uppercase;
+}

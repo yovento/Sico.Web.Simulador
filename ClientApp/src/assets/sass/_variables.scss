@@ -1,0 +1,77 @@
+/* -------------------------------------------------- */
+/* ---------------------VARIABLES-------------------- */
+/* -------------------------------------------------- */
+/*  1.0 - GENERAL TEXT ATRIBUTES
+/* -------------------------------------------------- */
+
+// Tipography
+$roboto: 'Roboto', sans-serif;
+$oswald: 'Oswald', sans-serif;
+
+// Constants
+$golden: 1.45;
+
+// Weights
+$light: 300;
+$regular: 400;
+$bold: 700;
+
+// Body Size
+$body-size: 16px;
+
+// Line Height
+$body-line: 1.6;
+
+// Letter spacing
+$spacing: 0.05em;
+
+/* -------------------------------------------------- */
+/*  2.0 - COLORS
+/* -------------------------------------------------- */
+
+$border-color :#ebebeb;
+
+$near-black: #212121;
+$dark-grey: #262626;
+$medium-grey: #383838;
+$grey: #7f7f7f;
+$light-grey: #bdbcbc;
+$very-light-grey: #eaeaea;
+$near-white: #f4f4f4;
+
+$green-dark: #348c42;
+$green: #45b549;
+$green-light: #a7dba7;
+$yellow-dark: #b7962f;
+$yellow: #f5c713;
+$yellow-light: #f7e494;
+$red-dark: #9d1616;
+$red: #d11e1e;
+$red-light: #e09090;
+$blue-dark: #24709b;
+$blue: #3095ce;
+$blue-light: #7fcbe2;
+
+$grey-blue: #2c3e50;
+$grey-blue-light: #7e868c;
+
+$black: #000000;
+$white: #ffffff;
+
+$fb-blue: #3b5998;
+$tw-blue: #1da1f2;
+$yt-red: #cd201f;
+$inst-color: #cd486b;
+$in-color: #0e76a8;
+
+
+/* -------------------------------------------------- */
+/*  3.0 - SCREEN SIZES
+/* -------------------------------------------------- */
+
+$vsmall-width: 360px; // 360px
+$small-width: 576px; // 480px
+$mobile-width: 768px; // 768px
+$tablet-width: 992px; // 992px
+$desktop-width: 1200px; // 1200px
+$big-width: 1440px; // 1440px

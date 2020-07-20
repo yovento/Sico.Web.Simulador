@@ -1,0 +1,75 @@
+<div class="collapse-block">
+  <br />
+  <table *ngIf="selectedBuilding.separationFeeProposedValue > 0" class="info-resumenplan-table">
+    <span class="table-title">Separación y cuota inicial:</span>
+    <tbody>
+      <tr>
+        <td><b>Valor de separación:</b></td>
+        <td>
+          <span id="table-separacion" class="currency">$
+            {{ selectedBuilding.separationFeeProposedValue.toLocaleString('es-CO', {minimumFractionDigits: 0, maximumFractionDigits: 0}) }}</span>
+        </td>
+      </tr>
+      <tr class="cuota-tr">
+        <td><b>Número de cuotas:</b></td>
+        <td><span id="table-numcuotas">{{ selectedBuilding.monthsUntilProposedSimulationEnd }}</span></td>
+      </tr>
+      <tr class="cuota-tr">
+        <td><b>Valor cuota mensual:</b></td>
+        <td>
+          <span id="table-valcuota" class="currency">$
+            {{ clientMonthlyEstimatedInitialFeePayment().toLocaleString('es-CO', {minimumFractionDigits: 0, maximumFractionDigits: 0}) }}</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br />
+  <!-- <table class="info-ajustesplan-table">
+    <span class="table-title">Ajustes al plan de pagos:</span>
+    <tbody>
+      <tr>
+        <td><b>Valor total subsidios:</b></td>
+        <td>
+          <span id="table-subsidios" class="currency"></span>
+        </td>
+      </tr>
+      <tr>
+        <td><b>Valor total primas:</b></td>
+        <td>
+          <span id="table-primas" class="currency"></span>
+        </td>
+      </tr>
+      <tr>
+        <td><b>Valor total cesantías:</b></td>
+        <td>
+          <span id="table-cesantias" class="currency"></span>
+        </td>
+      </tr>
+      <tr>
+        <td><b>Valor total otros pagos:</b></td>
+        <td><span id="table-otros" class="currency"></span></td>
+      </tr>
+    </tbody>
+  </table>
+  <br /> -->
+  <table *ngIf="selectedBuilding.financingProposedValue > 0" class="info-financiacion-table">
+    <span class="table-title">Financiación:</span>
+    <tbody>
+      <tr>
+        <td><b>Valor a financiar:</b></td>
+        <td>
+          <span id="table-financiar" class="currency">$
+            {{ selectedBuilding.financingProposedValue.toLocaleString('es-CO', {minimumFractionDigits: 0, maximumFractionDigits: 0}) }}</span>
+        </td>
+      </tr>
+      <tr>
+        <td><b>Plazo en años:</b></td>
+        <td><span id="table-plazo">{{selectedBuilding.financingProposedYears }}</span></td>
+      </tr>
+      <tr>
+        <td><b>Tasa de interés:</b></td>
+        <td><span id="table-interes">{{ selectedBuilding.financingProposedRate.toLocaleString('es-CO') }}</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,141 @@
+<div class="main animate__animated animate__fadeIn">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-8 content-wrapper">
+        <div class="logo-sico">
+          <img src="{{selectedBuilding.companyLogo}}" alt="" />
+        </div>
+
+        <!-- .................... -->
+        <!-- FIELDSET FORM PASO 1 -->
+        <!-- .................... -->
+        <div class="col-md-12 setup-content" id="step-1">
+          <app-projectselection [selectedBuilding]="selectedBuilding"
+            (selectedBuildingChanged)="selectedBuildingChanged($event);" (nextStep)="changeStep($event);">
+          </app-projectselection>
+        </div>
+
+        <!-- .................... -->
+        <!-- FIELDSET FORM PASO 2 -->
+        <!-- .................... -->
+        <div class="col-md-12 setup-content" id="step-2">
+          <app-proposaldetails [selectedBuilding]="selectedBuilding"
+            (selectedBuildingChanged)="selectedBuildingChanged($event);" (nextStep)="changeStep($event);">
+          </app-proposaldetails>
+        </div>
+
+        <!-- .................... -->
+        <!-- FIELDSET FORM PASO 3 -->
+        <!-- .................... -->
+        <div class="col-md-12 setup-content" id="step-3">
+          <app-proposalconfirmation [selectedBuilding]="selectedBuilding" (simulationSent)="simulationSent($event)"
+            (nextStep)="changeStep($event);">
+          </app-proposalconfirmation>
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="col-12 col-md-4 sidebar-wrapper">
+        <ul class="setup-panel">
+          <li class="active">
+            <a href="#step-1">
+              <div class="list-ball">
+                <span class="icon-building"></span>
+              </div>
+              <h4 class="list-group-item-heading">Paso 1</h4>
+              <p class="list-group-item-text">Selecciona el inmueble</p>
+            </a>
+          </li>
+          <li class="disabled">
+            <a href="#step-2">
+              <div class="list-ball">
+                <span class="icon-save-money"></span>
+              </div>
+              <h4 class="list-group-item-heading">Paso 2</h4>
+              <p class="list-group-item-text">
+                Separación, cuota inicial y financiación
+              </p>
+            </a>
+          </li>
+          <li class="disabled">
+            <a href="#step-3">
+              <div class="list-ball">
+                <span class="icon-wallet"></span>
+              </div>
+              <h4 class="list-group-item-heading">Paso 3</h4>
+              <p class="list-group-item-text">
+                Recibe cotización y plan de pagos
+              </p>
+            </a>
+          </li>
+        </ul>
+
+        <hr />
+
+        <div class="info-proyecto">
+          <span class="info-btn">
+            <a class="showinfo_link collapsed" data-toggle="collapse" href="#info-proyecto-block" role="button"
+              aria-expanded="false" aria-controls="info-proyecto-block">
+              Información proyecto <i class="fa fa-chevron-up"></i>
+            </a>
+          </span>
+          <div class="collapse" id="info-proyecto-block">
+            <app-projectinfo [selectedBuilding]="selectedBuilding"></app-projectinfo>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="info-resumen">
+          <span class="info-btn">
+            <a class="showinfo_link collapsed" data-toggle="collapse" href="#info-resumen-block" role="button"
+              aria-expanded="true" aria-controls="info-resumen-block">
+              Detalle costos <i class="fa fa-chevron-up"></i>
+            </a>
+          </span>
+          <div class="collapse" id="info-resumen-block">
+            <app-costs [selectedBuilding]="selectedBuilding"></app-costs>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="info-resumenplan">
+          <span class="info-btn">
+            <a class="showinfo_link collapsed" data-toggle="collapse" href="#info-resumenplan-block" role="button"
+              aria-expanded="true" aria-controls="info-resumen-block">
+              Resumen plan de pagos <i class="fa fa-chevron-up"></i>
+            </a>
+          </span>
+          <div class="collapse" id="info-resumenplan-block">
+            <app-paymentplan [selectedBuilding]="selectedBuilding"></app-paymentplan>
+          </div>
+        </div>
+
+        <hr />
+
+        <button id="btn-reiniciar" (click)="startSimulation()" class="btn-full green activate-step-1"
+          *ngIf="showRestart">
+          Cotiza de nuevo
+          <i class="fa fa-refresh"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal js-loading-bar">
+  <div class="modal-dialog">
+    <div class="modal-content-loading">
+      <div class="modal-body">
+        <div class="container text-center vh-40 d-table">
+          <div class="m-auto d-table-cell align-middle">
+            <div class="spinner-border text-light" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

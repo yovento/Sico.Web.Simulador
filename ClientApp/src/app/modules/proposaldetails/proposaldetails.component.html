@@ -1,0 +1,251 @@
+<fieldset>
+  <legend id="title-2">
+    <span class="step-heading">PROPUESTA DE COTIZACIÓN: </span>
+    <span class="step-number">Paso 2 / 3</span>
+  </legend>
+
+  <div class="wrapper-step">
+    <div class="form-group">
+      <!-- Paso 2: PROPUESTA CUOTA INICIAL -->
+      <div id="propuestacuotainicial-block" class="row">
+        <div class="col-12">
+          <span class="step-description">Estás muy cerca de realizar una gran inversión.
+            <br />
+            Hemos configurado la siguiente opción de negocio para tí.</span>
+        </div>
+
+        <div class="col-12">
+          <hr />
+        </div>
+
+        <div class="col-12">
+          <span class="step-description-inner">Propuesta de cuota inicial:</span>
+        </div>
+
+        <!-- Paso 2: PROPUESTA CUOTA INICIAL - Cuota inicial -->
+        <div class="block-cuota-wrapper full">
+          <div class="block-cuota block-cuota_propuesta validate">
+            <span id="propuesta_cuotainicial" class="currency block-cuota-value">$
+              {{ selectedBuilding.initialValue().toLocaleString('es-CO', {minimumFractionDigits: 0, maximumFractionDigits: 0}) }}</span>
+            <span class="block-cuota-text">Cuota inicial</span>
+          </div>
+        </div>
+
+        <!-- Paso 2: PROPUESTA CUOTA INICIAL - Valor inmueble-->
+        <div class="block-cuota-wrapper">
+          <div class="block-cuota block-cuota_propuesta validate">
+            <span id="propuesta_valor" class="currency block-cuota-value">$
+              {{ selectedBuilding.totalValue.toLocaleString('es-CO') }}</span>
+            <span class="block-cuota-text">Valor inmueble</span>
+          </div>
+        </div>
+
+        <!-- Paso 2: PROPUESTA CUOTA INICIAL - Separación -->
+        <div class="block-cuota-wrapper">
+          <div class="block-cuota block-cuota_propuesta validate">
+            <span id="propuesta_separación" class="currency block-cuota-value">$
+              {{ selectedBuilding.separationFeeProposedValue.toLocaleString('es-CO') }}</span>
+            <span class="block-cuota-text">Separación</span>
+          </div>
+        </div>
+
+        <!-- Paso 2: PROPUESTA CUOTA INICIAL - Meses y valor -->
+        <div class="block-cuota-wrapper">
+          <div class="block-cuota block-cuota_propuestacuotas validate">
+            <span class="block-cuota-small">El saldo de la cuota inicial lo cubrirás en</span>
+            <span id="propuesta_meses" class="block-cuota-value">{{monthsUntilSimulationEnd}}</span>
+            <span class="block-cuota-small">Con un valor aproximado de</span>
+            <span id="propuesta_valorcuota" class="currency block-cuota-value">$
+              {{clientMonthlyEstimatedInitialFeePayment().toLocaleString('es-CO', {minimumFractionDigits: 0, maximumFractionDigits: 0}) }}</span>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <hr />
+        </div>
+      </div>
+
+      <!-- Paso 2: PROPUESTA FINANCIACIÓN -->
+      <div id="propuestafinanciacion-block" class="row">
+        <div class="col-12">
+          <span class="step-description-inner">Propuesta de financiación:</span>
+        </div>
+
+        <!-- Paso 2: PROPUESTA FINANCIACIÓN - Valor a financiar -->
+        <div class="block-propuesta-wrapper full">
+          <div class="block-propuesta block-propuesta_valorfinanciar">
+            <span id="financiacion_valor" class="currency block-propuesta-value">$
+              {{selectedBuilding.financingProposedValue.toLocaleString('es-CO', {minimumFractionDigits: 0, maximumFractionDigits: 0})}}</span>
+            <span class="block-propuesta-text">Valor a financiar</span>
+          </div>
+        </div>
+
+        <!-- Paso 2: PROPUESTA FINANCIACIÓN - Ingresos familiares requeridos -->
+        <div class="block-propuesta-wrapper">
+          <div class="block-propuesta block-propuesta_ingresosfamiliares">
+            <span id="financiacion_ingresos" class="currency block-propuesta-value">$
+              {{familiarIncome().toLocaleString('es-CO', {minimumFractionDigits: 0, maximumFractionDigits: 0})}}</span>
+            <span class="block-propuesta-text">Ingresos familiares requeridos</span>
+          </div>
+        </div>
+
+        <!-- Paso 2: PROPUESTA FINANCIACIÓN - Cuota mensual estimada -->
+        <div class="block-propuesta-wrapper">
+          <div class="block-propuesta block-propuesta_cuotamensual">
+            <span id="financiacion_cuotamensual" class="currency block-propuesta-value">$
+              {{monthlyEstimatedFinancePayment().toLocaleString('es-CO', {minimumFractionDigits: 0, maximumFractionDigits: 0})}}</span>
+            <span class="block-propuesta-text">Cuota mensual estimada</span>
+          </div>
+        </div>
+
+        <!-- Paso 2: PROPUESTA FINANCIACIÓN - Meses estimados en plan de pagos -->
+        <div class="block-propuesta-wrapper">
+          <div class="block-propuesta block-propuesta_meses">
+            <span id="financiacion_meses" class="block-propuesta-value" [textContent]="financeYears * 12"></span>
+            <span class="block-propuesta-text">Meses estimados en plan de pagos</span>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <hr />
+        </div>
+      </div>
+
+      <div id="cuotas-container">
+
+        <div class="row" style="">
+
+          <div class="col-12">
+            <span class="step-description-inner">Ajusta tu plan de pagos:</span>
+          </div>
+
+
+          <div class="col-12">
+            <span class="step-description">
+              Ingresa el valor de separación del inmueble y el número de cuotas mensuales para pagar el saldo de la
+              cuota inicial.
+            </span>
+          </div>
+
+          <!-- Paso 2: AJUSTES FINANCIACIÓN - Valor de separación -->
+          <div id="ajuste-valor" class="col-12 col-lg-4 offset-lg-4">
+            <label for="subsidio_valor" style="text-align: center;">Valor de separación:</label>
+
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">$</span>
+              </div>
+              <!-- Valor min: tomar valor mínimo correspondiente al valor de separación -->
+              <!-- Valor max: tomar valor máximo correspondiente al valor máximo financiero determinado por el proyecto -->
+              <input (change)="separationChanged($event)"
+                [cleave]="{numeral: true,delimiter: '.', numeralThousandsGroupStyle: 'thousand', numeralDecimalMark: ','}"
+                id="valorSeparacion" class="form-control" [ngModel]="selectedBuilding.separationFeeProposedValue" />
+            </div>
+
+          </div>
+
+          <div *ngIf="!separationValueIsValid()" class="col-12 small-alerts">
+            <small>
+              El valor ingresado debe ser al menos de <span id="small-separacion" class="currency">$
+                {{selectedBuilding.separationFeeValue.toLocaleString('es-CO')}}</span> para iniciar el
+              proceso de simulación.
+            </small>
+            <small>
+              El valor ingresado supera el tope máximo de <span id="small-maximo" class="currency">$
+                {{this.selectedBuilding.initialValue().toLocaleString('es-CO')}}</span>. Por favor
+              ingresa un monto válido.
+            </small>
+          </div>
+
+          <!-- Paso 2: AJUSTES FINANCIACIÓN - Cuota en meses -->
+          <div id="ajuste-cuota" class="col-12" style="">
+            <label for="plazo_slide" class="center">Cuota en meses:</label>
+            <ng5-slider [(value)]="monthsUntilSimulationEnd" [options]="sliderOptionsMonths">
+            </ng5-slider>
+          </div>
+
+          <div class="col-12">
+            <hr>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Paso 2: TÉRMINOS FINANCIACIÓN -->
+      <div id="financiacion-container">
+        <div class="row row-w">
+          <div class="col-12">
+            <span class="step-description-inner">Define los términos de la financiación:</span>
+          </div>
+          <div class="col-12">
+            <!-- Paso 2: TÉRMINOS FINANCIACIÓN - Plazo en años -->
+            <label for="plazo_slide" class="center">Plazo en años:</label>
+            <p style="text-align: center;">
+              Indica el número de años en los que deseas tomar la financiación.
+            </p>
+            <ng5-slider [(value)]="financeYears" [options]="sliderOptionsYears"></ng5-slider>
+          </div>
+        </div>
+
+        <div class="row row-w">
+          <div class="col-12 col-lg-4 offset-lg-4">
+            <!-- Paso 2: TÉRMINOS FINANCIACIÓN - Tasa de interés-->
+            <label for="dia_number" style="text-align: center;">Tasa de interés:</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">%</span>
+              </div>
+              <input type="number" class="form-control" id="tasainteres_number" aria-describedby="tasainteresHelp"
+                type="number" name="tasainteres" min="0" [(ngModel)]="financeRate" step="0.1" required />
+            </div>
+            <small id="tasainteresHelp" class="form-text text-muted">Ingresa la tasa de interés que te ofrece tu entidad
+              financiera.
+              Puedes ingresar decimales separados por coma.</small>
+          </div>
+        </div>
+
+        <div class="row row-w">
+          <div class="col-12">
+            <!-- Paso 2: TÉRMINOS FINANCIACIÓN - Tasa de interés-->
+            <div class="btn-calcular">
+              <!-- TODO: Añadir ícono de loading -->
+              <button id="btn-financiar" (click)="calculateSimulatorValues()" class="btn-half green">
+                Recalcular
+                <i *ngIf="simulationInProgress" class="fa fa-spinner animated"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <hr />
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOQUE BUTTONS -->
+      <div class="row">
+        <div class="col-12">
+          <div class="btn-group">
+            <button id="btn-anterior" (click)="activateStep(1)" class="btn-half grey activate-step-1">
+              <i class="fa fa-chevron-left"></i>
+              Anterior
+            </button>
+            <button id="btn-ajustar" class="btn-half">
+              <i class="fa fa-edit"></i>
+              Ajustar formas de pago
+            </button>
+            <button id="btn-verpropuesta" class="btn-half" style="display: none;">
+              Ver propuesta
+            </button>
+            <button id="btn-cotizar" (click)="activateStep(3)" class="btn-half green activate-step-2">
+              Recibe tu cotización
+              <i class="fa fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</fieldset>

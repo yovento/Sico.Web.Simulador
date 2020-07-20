@@ -1,0 +1,193 @@
+.collapse-block {
+  margin-bottom: 20px;
+}
+
+//SIDEBAR NAVIGATION
+.sidebar-wrapper hr {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+ul.setup-panel {
+  display: block;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    list-style: none;
+    margin: 10px 0;
+    width: 100%;
+
+    a {
+      text-decoration: none;
+
+      &:hover h4 {
+        color: $blue-dark;
+      }
+      &:hover .list-ball {
+        background-color: $blue;
+      }
+    }
+    h4 {
+      color: $grey-blue;
+      font-family: $oswald;
+      font-size: 18px;
+      margin: 0;
+      text-transform: uppercase;
+      @include tablet {
+        font-size: 22px;
+      }
+    }
+    p {
+      color: $grey-blue-light;
+      font-size: 14px;
+      height: 32px;
+      line-height: 16px;
+      margin: 0;
+    }
+
+    &.disabled {
+
+      a {
+      cursor: not-allowed;
+      }
+
+      h4, p {
+        color: $grey;
+      }
+      a:hover h4 {
+        color: $grey;
+      }
+      a:hover .list-ball {
+        background-color: $light-grey;
+      }
+
+    }
+  }
+
+  &:before {
+    display: block;
+    content: "";
+    width: 6px;
+    height: 170px;
+    background: $grey-blue-light;
+    position: absolute;
+    margin-left: 28px;
+    margin-top: 40px;
+    z-index: 1;
+  }
+}
+.list-ball {
+  background: $blue-dark;
+  border-radius: 30px;
+  color: white;
+  display: block;
+  float: left;
+  height: 60px;
+  line-height: 60px;
+  margin-right: 20px;
+  position: relative;
+  text-align: center;
+  width: 60px;
+  z-index: 10;
+
+  li.disabled & {
+    background: $light-grey;
+  }
+  li.active & {
+    background: $blue;
+  }
+  span {
+    font-size: 32px;
+    height: 60px;
+    line-height: 60px;
+  }
+}
+
+//INFO BLOCKS
+span.info-btn  {
+  a {
+    color: $blue-dark;
+    display: block;
+    font-family: Oswald;
+    font-size: 18px;
+    height: 26px;
+    line-height: 26px;
+    margin: 5px 0;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 100%;
+    @include mobile {
+      font-size: 16px;
+      height: 24px;
+      line-height: 24px;
+    }
+    @include tablet {
+      font-size: 18px;
+      height: 26px;
+      line-height: 26px;
+    }
+
+    i {
+      font-size: 14px;
+      height: 26px;
+      line-height: 26px;
+      float: right;
+      padding: 0 10px;
+      @include mobile {
+        font-size: 12px;
+        height: 24px;
+        line-height: 24px;
+      }
+      @include tablet {
+        font-size: 16px;
+        height: 26px;
+        line-height: 26px;
+      }
+    }
+    &:hover {
+      color: $blue;
+    }
+  }
+}
+a.showinfo_link.collapsed i {
+  transform: rotate(180deg);
+}
+a.showinfo_link i {
+  transform: rotate(0deg);
+}
+
+#info-proyecto-block p {
+  margin-bottom: 0;
+}
+table.info-proyecto-table {
+  color: $medium-grey;
+  font-size: 14px;
+  width: 100%;
+
+  td.table-img {
+    text-align: center;
+  }
+  img {
+    max-width: 80%;
+    padding: 10px;
+  }
+}
+
+table.info-resumenplan-table, table.info-ajustesplan-table, table.info-financiacion-table {
+  color: $medium-grey;
+  font-size: 14px;
+  width: 100%;
+  b {
+    text-align: center;
+  }
+}
+
+span.table-title {
+  display: block;
+  font-size: 16px;
+  font-family: $oswald;
+  text-align: center;
+  text-transform: uppercase;
+}

@@ -1,0 +1,70 @@
+<form (ngSubmit)="proposalConfirmed(f)" #f="ngForm" [formGroup]="formName">
+  <fieldset>
+    <legend id="title-3">
+      <span class="step-heading">ENVÍO DE COTIZACIÓN: </span>
+      <span class="step-number">Paso 3 / 3</span>
+    </legend>
+
+    <div class="wrapper-step">
+      <span class="step-description">Para recibir esta cotización en tu correo electrónico, deberás
+        suministrarnos unos datos básicos y en segundos tendrás toda la
+        información.</span>
+
+      <div class="form-group">
+        <div class="row row-w">
+          <div class="col-12 col-md-6">
+            <label for="nombres_text">Nombres:</label>
+            <input class="form-control" id="nombres_text" type="text" required formControlName="name" />
+          </div>
+          <div class="col-12 col-md-6">
+            <label for="apellidos_text">Apellidos:</label>
+            <input class="form-control" id="apellidos_text" type="text" required formControlName="lastname" />
+          </div>
+        </div>
+        <div class="row row-w">
+          <div class="col-12 col-md-6">
+            <label for="mail_email">Correo electrónico:</label>
+            <input type="email" class="form-control" id="mail_email" placeholder="nombre@correo.com" required
+              formControlName="email" />
+          </div>
+          <div class="col-12 col-md-6">
+            <label for="celular_number">Celular:</label>
+            <input type="number" class="form-control" id="celular_number" placeholder="" required
+              formControlName="phone" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="politica-check">
+              <input class="form-check-input" type="checkbox" value="" id="terms_check" formControlName="termsAccepted"
+                required />
+              <small *ngIf="selectedBuilding.projectPrivacyLink !== ''" class="form-check-label" for="terms_check">
+                Acepto <a [href]="selectedBuilding.projectPrivacyLink" target="_blank">la política de tratamiento de
+                  datos y envío de
+                  información</a> </small>
+              <small *ngIf="selectedBuilding.projectPrivacyLink == ''" class="form-check-label" for="terms_check">
+                Acepto la política de tratamiento de datos y envío de
+                información publicada en nuestro sitio web. </small> </div>
+          </div>
+        </div>
+        <div class="actions clearfix">
+          <ul role="menu" aria-label="Pagination">
+            <li id="previous-step3" (click)="activateStep(2)" class="activate-step-2 btn-grey" aria-hidden="false"
+              aria-disabled="false">
+              <a href="#step-2" role="menuitem">
+                <i class="fa fa-chevron-left"></i>
+                Anterior
+              </a>
+            </li>
+
+            <li id="btn_enviar-step-3" class="" aria-hidden="false" aria-disabled="false">
+              <button type="submit" role="menuitem">Enviar <i class="fa fa-paper-plane"></i></button>
+
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</form>
